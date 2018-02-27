@@ -1,6 +1,8 @@
 package com.wechat.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +36,11 @@ public class AppointmentController {
 		String toDes = request.getParameter("toDes");
 		String note = request.getParameter("note");
 		
+		Date d = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println("当前时间：" + sdf.format(d));
+		//Date submitTime = sdf.format(d);
+		
 		System.out.println(taocan + userName + telephone + date + time +fromDes + toDes + note);
 		
 		Appointment appointment = new Appointment();
@@ -45,6 +52,7 @@ public class AppointmentController {
 		appointment.setFromDes(fromDes);
 		appointment.setToDes(toDes);
 		appointment.setNote(note);
+		appointment.setSubmitTime(new Date());
 		
 		appointmentService.addAppointment(appointment);
 		

@@ -1,5 +1,7 @@
 package com.wechat.model;
 
+import java.util.Date;
+
 public class Appointment {
 	private Integer id;
 
@@ -18,8 +20,18 @@ public class Appointment {
     private String toDes;
     
     private String note;
+    
+    private Date submitTime;
 	
-    public Integer getId() {
+	public Date getSubmitTime() {
+		return submitTime;
+	}
+
+	public void setSubmitTime(Date submitTime) {
+		this.submitTime = submitTime;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 

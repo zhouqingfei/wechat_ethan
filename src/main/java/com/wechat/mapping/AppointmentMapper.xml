@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.wechat.dao.IAppointmentDao" >
   <resultMap id="BaseResultMap" type="com.wechat.model.Appointment" >
-    <id column="id" property="id" jdbcType="INTEGER" />
+  <!--   <id column="id" property="id" jdbcType="INTEGER" />
     <result column="taocan" property="taocan" jdbcType="VARCHAR" />
     <result column="username" property="userName" jdbcType="VARCHAR" />
     <result column="telephone" property="telephone" jdbcType="VARCHAR" />
@@ -11,10 +11,21 @@
     <result column="fromDes" property="fromDes" jdbcType="VARCHAR" />
     <result column="toDes" property="toDes" jdbcType="VARCHAR" />
     <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="submitTime" property="submitTime" jdbcType="VARCHAR" /> -->
+    <id column="id" property="id"/>
+    <result column="taocan" property="taocan"/>
+    <result column="username" property="userName"/>
+    <result column="telephone" property="telephone"/>
+    <result column="date" property="date"/>
+    <result column="time" property="time"/>
+    <result column="fromDes" property="fromDes"/>
+    <result column="toDes" property="toDes"/>
+    <result column="note" property="note"/>
+    <result column="submitTime" property="submitTime"/>
   </resultMap>
   
   <insert id="insert" parameterType="com.wechat.model.Appointment" >
-     insert into youai_appointment (taocan, username,telephone,date,time,fromDes,toDes,note) values (#{taocan,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR},#{date,jdbcType=VARCHAR},#{time,jdbcType=VARCHAR},#{fromDes,jdbcType=VARCHAR},#{toDes,jdbcType=VARCHAR},#{note,jdbcType=VARCHAR})
+     insert into youai_appointment (taocan, username,telephone,date,time,fromDes,toDes,note,submitTime) values (#{taocan}, #{userName}, #{telephone},#{date},#{time},#{fromDes},#{toDes},#{note},#{submitTime})
   </insert>
   
   <select id="findByPagination" resultMap="BaseResultMap">

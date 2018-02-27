@@ -44,7 +44,7 @@
 							var tabUrl;
 							//console.info(node);
 							if (node.attributes.url) {
-								tabUrl = basePath + node.attributes.url + "?testCaseList=" + node.attributes.testCaseList;
+								tabUrl = basePath + node.attributes.url;
 								//alert(tabUrl);
 								addTab(title,tabUrl,title+node.id);
 							}
@@ -118,7 +118,7 @@
 
 	    <!-- footer -->
 	    <div class="wu-footer" data-options="region:'south',border:true,split:true">
-	        &copy; 版权所有 浪潮电子信息产业股份有限公司
+	        &copy; 版权所有 有爱搬家股份有限公司
 	    </div>
 	</body>
 </html>

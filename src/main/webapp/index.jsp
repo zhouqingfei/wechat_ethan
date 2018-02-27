@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>测试管理系统</title>
+		<title>有爱后台管理系统</title>
 		
 		<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/js/jquery-easyui-1.3.1/themes/default/easyui.css" />
 		<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/wu.css"/>

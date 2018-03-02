@@ -24,8 +24,10 @@
 </head>
 
 <body>
-
-	<table style="padding-top:0px;" id="appointmentsDg" class="easyui-datagrid" toolbar="#wu-toolbar-2"></table>
+	<div  style='width:100%;height:100%'>
+		<table style="padding-top:0px;" id="appointmentsDg" class="easyui-datagrid" toolbar="#wu-toolbar-2"></table>
+	</div>			
+	
 
 	
 	<script type="text/javascript">
@@ -39,7 +41,14 @@
 							rownumbers:true,
 							striped:true,
 							fitColumns:true,
-							singleSelect:true,
+							//singleSelect:true,
+							frozenColumns:[[
+								{
+									field:"ck",
+									width:50,
+									checkbox:true
+								}
+							]],
 							columns:[[
 								{
 									field:"id",
@@ -84,7 +93,7 @@
 							]],
 							pagination:true,
 							pageSize:10,
-							pageList:[10,20,40,50]
+							pageList:[10,20,40,80]
 						
 		 });
 	</script>

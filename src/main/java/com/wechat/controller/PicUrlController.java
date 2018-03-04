@@ -36,6 +36,7 @@ public class PicUrlController {
 		}
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
+//
 		System.out.println(json);
 		return gs.toJson(json).toString();		
 	}

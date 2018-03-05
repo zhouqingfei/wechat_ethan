@@ -6,3 +6,4 @@ src/main/resources/jdbc.properties
 target/classes/jdbc.properties
 src/main/resources/jdbc.properties
 target/classes/jdbc.properties
+src/main/resources/jdbc.properties

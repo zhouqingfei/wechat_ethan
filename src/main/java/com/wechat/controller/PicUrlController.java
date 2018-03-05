@@ -50,8 +50,7 @@ public class PicUrlController {
 			Map<String , String > picUrlMap =new HashMap<String,String>();
 			picUrlMap.put("picUrl", picUrl);
 			jsonList.add(picUrlMap);
-		}
-		
+		}		
 		
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";

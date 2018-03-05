@@ -20,12 +20,14 @@
     <result column="time" property="time"/>
     <result column="fromDes" property="fromDes"/>
     <result column="toDes" property="toDes"/>
+    <result column="fromFloor" property="fromFloor"/>
+    <result column="toFloor" property="toFloor"/>
     <result column="note" property="note"/>
     <result column="submitTime" property="submitTime"/>
   </resultMap>
   
   <insert id="insert" parameterType="com.wechat.model.Appointment" >
-     insert into youai_appointment (taocan, username,telephone,date,time,fromDes,toDes,note,submitTime) values (#{taocan}, #{userName}, #{telephone},#{date},#{time},#{fromDes},#{toDes},#{note},#{submitTime})
+     insert into youai_appointment (taocan, username,telephone,date,time,fromDes,toDes,fromFloor,toFloornote,submitTime) values (#{taocan}, #{userName}, #{telephone},#{date},#{time},#{fromDes},#{toDes},#{fromFloor},#{toFloor},#{note},#{submitTime})
   </insert>
   
   <select id="findByPagination" resultMap="BaseResultMap">

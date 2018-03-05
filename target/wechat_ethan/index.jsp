@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>测试管理系统</title>
+		<title>有爱后台管理系统</title>
 		
 		<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/js/jquery-easyui-1.3.1/themes/default/easyui.css" />
 		<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/wu.css"/>
@@ -39,7 +39,7 @@
 						onClick:function(node){
 							var parentNode=$('#projectTree').tree('getParent',node.target);
 							
-							var title = parentNode.text + ">" + node.text;
+							var title = node.text;
 							//alert(parentNode.text);
 							var tabUrl;
 							//console.info(node);
@@ -112,7 +112,9 @@
 		
 		<div id="mainPanle" region="center" border="true" border="false">
 			<div id="tabs" class="easyui-tabs" fit="true" border="false">
-				
+				<div title="首页" >
+					<div align="center" style="padding-top: 100px;"><font color="red" size="10">欢迎使用</font></div>
+				</div>
 			</div> 
 		</div>	
 

@@ -17,16 +17,16 @@ import com.google.gson.Gson;
 import com.wechat.service.IPicUrlService;
 
 @Controller
-@RequestMapping("/getpic.do")
+@RequestMapping("/getPic.do")
 public class PicUrlController {
 
 	@Resource
-	IPicUrlService getpicurl;
+	IPicUrlService picUrlService;
 
-	@RequestMapping(value = "/getreputation",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
+	@RequestMapping(value = "/getReputation",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
 	public @ResponseBody String getReputationPic(){
 		List<String> picUrlList = new ArrayList<String>();		
-		picUrlList= getpicurl.getReputationPicUrl();
+		picUrlList= picUrlService.getReputationPicUrl();
 		
 		List<Object> jsonList = new ArrayList<Object>();
 		for(String picUrl:picUrlList){
@@ -37,6 +37,25 @@ public class PicUrlController {
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
 //
+		System.out.println(json);
+		return gs.toJson(json).toString();		
+	}
+	
+	@RequestMapping(value = "/getMainmenu",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
+	public @ResponseBody String getMainmenu(){
+		List<String> picUrlList = new ArrayList<String>();		
+		picUrlList= picUrlService.getMainPicUrl();
+		
+		List<Object> jsonList = new ArrayList<Object>();
+		for(String picUrl:picUrlList){
+			Map<String , String > picUrlMap =new HashMap<String,String>();
+			picUrlMap.put("picUrl", picUrl);
+			jsonList.add(picUrlMap);
+		}
+		
+		
+		Gson gs = new Gson();
+		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
 		System.out.println(json);
 		return gs.toJson(json).toString();		
 	}

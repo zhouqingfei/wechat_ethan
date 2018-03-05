@@ -14,20 +14,26 @@
     <result column="submitTime" property="submitTime" jdbcType="VARCHAR" /> -->
     <id column="id" property="id"/>
     <result column="taocan" property="taocan"/>
-    <result column="username" property="userName"/>
-    <result column="telephone" property="telephone"/>
-    <result column="date" property="date"/>
-    <result column="time" property="time"/>
+    <result column="appointTime" property="appointTime"/>
+    
+    <result column="fromMapName" property="fromMapName"/>
+    <result column="fromMapAddress" property="fromMapAddress"/>
     <result column="fromDes" property="fromDes"/>
-    <result column="toDes" property="toDes"/>
     <result column="fromFloor" property="fromFloor"/>
+    
+    <result column="toMapName" property="toMapName"/>
+    <result column="toMapAddress" property="toMapAddress"/>
+    <result column="toDes" property="toDes"/>
     <result column="toFloor" property="toFloor"/>
+    
+    <result column="userName" property="userName"/>
+    <result column="telephone" property="telephone"/>
     <result column="note" property="note"/>
     <result column="submitTime" property="submitTime"/>
   </resultMap>
   
   <insert id="insert" parameterType="com.wechat.model.Appointment" >
-     insert into youai_appointment (taocan, username,telephone,date,time,fromDes,toDes,fromFloor,toFloornote,submitTime) values (#{taocan}, #{userName}, #{telephone},#{date},#{time},#{fromDes},#{toDes},#{fromFloor},#{toFloor},#{note},#{submitTime})
+     insert into youai_appointment (taocan,appointTime,fromMapName,fromMapAddress,fromDes,fromFloor,toMapName,toMapAddress,toDes,toFloor,userName,telephone,note,submitTime) values (#{taocan}, #{appointTime}, #{fromMapName},#{fromMapAddress},#{fromDes},#{fromFloor},#{toMapName},#{toMapAddress},#{toDes},#{toFloor},#{userName},#{telephone},#{note},#{submitTime})
   </insert>
   
   <select id="findByPagination" resultMap="BaseResultMap">

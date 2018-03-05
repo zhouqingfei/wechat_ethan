@@ -4,3 +4,6 @@ target/classes/jdbc.properties
 target/classes/jdbc.properties
 src/main/resources/jdbc.properties
 *.properties
+target/classes/jdbc.properties
+src/main/resources/jdbc.properties
+target/classes/jdbc.properties

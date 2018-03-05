@@ -39,7 +39,7 @@
 						onClick:function(node){
 							var parentNode=$('#projectTree').tree('getParent',node.target);
 							
-							var title = node.text;
+							var title = parentNode.text + ">" + node.text;
 							//alert(parentNode.text);
 							var tabUrl;
 							//console.info(node);
@@ -112,9 +112,7 @@
 		
 		<div id="mainPanle" region="center" border="true" border="false">
 			<div id="tabs" class="easyui-tabs" fit="true" border="false">
-				<div title="首页" >
-					<div align="center" style="padding-top: 100px;"><font color="red" size="10">欢迎使用</font></div>
-				</div>
+				
 			</div> 
 		</div>	
 

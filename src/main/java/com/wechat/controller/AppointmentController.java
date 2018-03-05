@@ -34,6 +34,8 @@ public class AppointmentController {
 		String time = request.getParameter("time");
 		String fromDes = request.getParameter("fromDes");
 		String toDes = request.getParameter("toDes");
+		String fromFloor = request.getParameter("fromFloor");
+		String toFloor = request.getParameter("toFloor");
 		String note = request.getParameter("note");
 		
 		Date d = new Date();
@@ -51,6 +53,8 @@ public class AppointmentController {
 		appointment.setTime(time);
 		appointment.setFromDes(fromDes);
 		appointment.setToDes(toDes);
+		appointment.setFromFloor(fromFloor);
+		appointment.setToFloor(toFloor);
 		appointment.setNote(note);
 		appointment.setSubmitTime(new Date());
 		

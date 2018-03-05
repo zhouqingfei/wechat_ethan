@@ -19,6 +19,26 @@ public class Appointment {
 
     private String toDes;
     
+    private String fromFloor;
+
+    public String getFromFloor() {
+		return fromFloor;
+	}
+
+	public void setFromFloor(String fromFloor) {
+		this.fromFloor = fromFloor;
+	}
+
+	public String getToFloor() {
+		return toFloor;
+	}
+
+	public void setToFloor(String toFloor) {
+		this.toFloor = toFloor;
+	}
+
+	private String toFloor;
+    
     private String note;
     
     private Date submitTime;

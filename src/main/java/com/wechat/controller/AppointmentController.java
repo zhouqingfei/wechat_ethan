@@ -28,34 +28,43 @@ public class AppointmentController {
 	@RequestMapping(value="/addAppointment",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
 	public @ResponseBody String addAppointment(HttpServletRequest request) {
 		String taocan = request.getParameter("taocan");
-		String userName = request.getParameter("username");
-		String telephone = request.getParameter("telephone");
-		String date = request.getParameter("date");
-		String time = request.getParameter("time");
+		String appointTime = request.getParameter("appointTime");
+		
+		String fromMapName = request.getParameter("fromMapName");
+		String fromMapAddress = request.getParameter("fromMapAddress");
 		String fromDes = request.getParameter("fromDes");
-		String toDes = request.getParameter("toDes");
 		String fromFloor = request.getParameter("fromFloor");
+		
+		String toMapName = request.getParameter("toMapName");
+		String toMapAddress = request.getParameter("toMapAddress");
+		String toDes = request.getParameter("toDes");
 		String toFloor = request.getParameter("toFloor");
+		
+		String userName = request.getParameter("userName");
+		String telephone = request.getParameter("telephone");
 		String note = request.getParameter("note");
 		
-		Date d = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		System.out.println("当前时间：" + sdf.format(d));
-		//Date submitTime = sdf.format(d);
-		
-		System.out.println(taocan + userName + telephone + date + time +fromDes + toDes + note);
+		System.out.println(taocan + appointTime + fromMapName + fromMapAddress + fromDes +fromFloor);
+		System.out.println(toMapName + toMapAddress + toDes + toFloor + userName + telephone + note);
 		
 		Appointment appointment = new Appointment();
 		appointment.setTaocan(taocan);
-		appointment.setUserName(userName);
-		appointment.setTelephone(telephone);
-		appointment.setDate(date);
-		appointment.setTime(time);
-		appointment.setFromDes(fromDes);
-		appointment.setToDes(toDes);
+		appointment.setAppointTime(appointTime);
+		
+		appointment.setFromMapName(fromMapName);
+		appointment.setFromMapAddress(fromMapAddress);
+		appointment.setFromDes(fromDes);		
 		appointment.setFromFloor(fromFloor);
+		
+		appointment.setToMapName(toMapName);
+		appointment.setToMapAddress(toMapAddress);
+		appointment.setToDes(toDes);		
 		appointment.setToFloor(toFloor);
-		appointment.setNote(note);
+		
+		appointment.setUserName(userName);
+		appointment.setTelephone(telephone);;
+		appointment.setNote(note);;
+		
 		appointment.setSubmitTime(new Date());
 		
 		appointmentService.addAppointment(appointment);

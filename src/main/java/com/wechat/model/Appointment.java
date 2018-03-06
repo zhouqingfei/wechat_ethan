@@ -3,53 +3,28 @@ package com.wechat.model;
 import java.util.Date;
 
 public class Appointment {
-	private Integer id;
-
-	private String userName;
-
-    private String taocan;
-    
-    private String telephone;
-
-    private String date;
-
-    private String time;
-
-    private String fromDes;
-
-    private String toDes;
-    
-    private String fromFloor;
-
-    public String getFromFloor() {
-		return fromFloor;
-	}
-
-	public void setFromFloor(String fromFloor) {
-		this.fromFloor = fromFloor;
-	}
-
-	public String getToFloor() {
-		return toFloor;
-	}
-
-	public void setToFloor(String toFloor) {
-		this.toFloor = toFloor;
-	}
-
-	private String toFloor;
-    
-    private String note;
-    
-    private Date submitTime;
 	
-	public Date getSubmitTime() {
-		return submitTime;
-	}
+	private Integer id;
+	private String taocan;
+	private String appointTime;
+	
+    private String fromMapName;
+    private String fromMapAddress;
+    private String fromDes;
+    private String fromFloor;
+    
 
-	public void setSubmitTime(Date submitTime) {
-		this.submitTime = submitTime;
-	}
+    private String toMapName;
+    private String toMapAddress;
+    private String toDes;
+    private String toFloor;   
+        
+    private String userName;
+    private String telephone;   
+    private String note;  
+    private Date submitTime;
+
+	
 
 	public Integer getId() {
 		return id;
@@ -58,15 +33,7 @@ public class Appointment {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
+	
 	public String getTaocan() {
 		return taocan;
 	}
@@ -75,30 +42,29 @@ public class Appointment {
 		this.taocan = taocan;
 	}
 
-	public String getTelephone() {
-		return telephone;
+	public String getAppointTime() {
+		return appointTime;
 	}
 
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setAppointTime(String appointTime) {
+		this.appointTime = appointTime;
 	}
 
-	public String getDate() {
-		return date;
+	public String getFromMapName() {
+		return fromMapName;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setFromMapName(String fromMapName) {
+		this.fromMapName = fromMapName;
 	}
 
-	public String getTime() {
-		return time;
+	public String getFromMapAddress() {
+		return fromMapAddress;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setFromMapAddress(String fromMapAddress) {
+		this.fromMapAddress = fromMapAddress;
 	}
-
 
 	public String getFromDes() {
 		return fromDes;
@@ -106,6 +72,30 @@ public class Appointment {
 
 	public void setFromDes(String fromDes) {
 		this.fromDes = fromDes;
+	}
+
+	public String getFromFloor() {
+		return fromFloor;
+	}
+
+	public void setFromFloor(String fromFloor) {
+		this.fromFloor = fromFloor;
+	}
+
+	public String getToMapName() {
+		return toMapName;
+	}
+
+	public void setToMapName(String toMapName) {
+		this.toMapName = toMapName;
+	}
+
+	public String getToMapAddress() {
+		return toMapAddress;
+	}
+
+	public void setToMapAddress(String toMapAddress) {
+		this.toMapAddress = toMapAddress;
 	}
 
 	public String getToDes() {
@@ -116,11 +106,44 @@ public class Appointment {
 		this.toDes = toDes;
 	}
 
+	public String getToFloor() {
+		return toFloor;
+	}
+
+	public void setToFloor(String toFloor) {
+		this.toFloor = toFloor;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 	public String getNote() {
 		return note;
 	}
 
 	public void setNote(String note) {
 		this.note = note;
-	}	    
+	}
+	
+	public Date getSubmitTime() {
+		return submitTime;
+	}
+
+	public void setSubmitTime(Date submitTime) {
+		this.submitTime = submitTime;
+	}
+
 }

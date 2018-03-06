@@ -15,47 +15,63 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 import com.wechat.service.IPicUrlService;
+import com.wechat.util.FuncUtils;
 
 @Controller
-@RequestMapping("/getPic.do")
+@RequestMapping("/getpic.do")
 public class PicUrlController {
 
+	
+	
 	@Resource
-	IPicUrlService picUrlService;
+	IPicUrlService getpicurl;
 
-	@RequestMapping(value = "/getReputation",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
+	@RequestMapping(value = "/getreputation",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
 	public @ResponseBody String getReputationPic(){
 		List<String> picUrlList = new ArrayList<String>();		
-		picUrlList= picUrlService.getReputationPicUrl();
+		picUrlList= getpicurl.getReputationPicUrl();
+		
+		String url = FuncUtils.getConfParams("URL");
+		String[] folders = FuncUtils.getConfParams("REPUTATIONFILEPATH").split("//");
+		
+		String folder = folders[folders.length-1];
+		url +=folder+"/";
 		
 		List<Object> jsonList = new ArrayList<Object>();
 		for(String picUrl:picUrlList){
 			Map<String , String > picUrlMap =new HashMap<String,String>();
-			picUrlMap.put("picUrl", picUrl);
+			picUrlMap.put("picUrl", url+picUrl);
 			jsonList.add(picUrlMap);
 		}
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
-//
 		System.out.println(json);
-		return gs.toJson(json).toString();		
+		return gs.toJson(json).toString();	 	
 	}
 	
-	@RequestMapping(value = "/getMainmenu",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
-	public @ResponseBody String getMainmenu(){
+	@RequestMapping(value = "/getmain",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
+	public @ResponseBody String getMainPic(){
 		List<String> picUrlList = new ArrayList<String>();		
-		picUrlList= picUrlService.getMainPicUrl();
+		picUrlList= getpicurl.getMainPicUrl();
+		
+		String url = FuncUtils.getConfParams("URL");
+		String[] folders = FuncUtils.getConfParams("MAINMENUFILEPATHE").split("//");
+		
+		String folder = folders[folders.length-1];
+		url +=folder+"/";
+		
 		
 		List<Object> jsonList = new ArrayList<Object>();
+		
 		for(String picUrl:picUrlList){
 			Map<String , String > picUrlMap =new HashMap<String,String>();
-			picUrlMap.put("picUrl", picUrl);
+			picUrlMap.put("picUrl",url+ picUrl);
 			jsonList.add(picUrlMap);
-		}		
-		
+		}
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
 		System.out.println(json);
 		return gs.toJson(json).toString();		
 	}
+	
 }

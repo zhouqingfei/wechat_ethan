@@ -13,6 +13,7 @@
     <result column="note" property="note" jdbcType="VARCHAR" />
     <result column="submitTime" property="submitTime" jdbcType="VARCHAR" /> -->
     <id column="id" property="id"/>
+    <result column="state" property="state"/>
     <result column="taocan" property="taocan"/>
     <result column="appointTime" property="appointTime"/>
     
@@ -33,8 +34,12 @@
   </resultMap>
   
   <insert id="insert" parameterType="com.wechat.model.Appointment" >
-     insert into youai_appointment (taocan,appointTime,fromMapName,fromMapAddress,fromDes,fromFloor,toMapName,toMapAddress,toDes,toFloor,userName,telephone,note,submitTime) values (#{taocan}, #{appointTime}, #{fromMapName},#{fromMapAddress},#{fromDes},#{fromFloor},#{toMapName},#{toMapAddress},#{toDes},#{toFloor},#{userName},#{telephone},#{note},#{submitTime})
+     insert into youai_appointment (state,taocan,appointTime,fromMapName,fromMapAddress,fromDes,fromFloor,toMapName,toMapAddress,toDes,toFloor,userName,telephone,note,submitTime) values (#{state}, #{taocan}, #{appointTime}, #{fromMapName},#{fromMapAddress},#{fromDes},#{fromFloor},#{toMapName},#{toMapAddress},#{toDes},#{toFloor},#{userName},#{telephone},#{note},#{submitTime})
   </insert>
+  
+  <update id="update" parameterType="com.wechat.model.Appointment" >
+     UPDATE youai_appointment SET state = #{state},taocan = #{taocan},appointTime = #{appointTime},fromMapName = #{fromMapName},fromMapAddress = #{fromMapAddress},fromDes = #{fromDes},fromFloor = #{fromFloor},toMapName = #{toMapName},toMapAddress = #{toMapAddress},toDes = #{toDes},toFloor = #{toFloor},userName = #{userName},telephone = #{telephone},note = #{note} WHERE id = #{id}
+  </update>
   
   <select id="findByPagination" resultMap="BaseResultMap">
 		SELECT * FROM youai_appointment LIMIT #{0},#{1}

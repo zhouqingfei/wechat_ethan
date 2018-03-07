@@ -5,6 +5,7 @@ import java.util.Date;
 public class Appointment {
 	
 	private Integer id;
+	private String state;
 	private String taocan;
 	private String appointTime;
 	
@@ -22,7 +23,7 @@ public class Appointment {
     private String userName;
     private String telephone;   
     private String note;  
-    private Date submitTime;
+    private String submitTime;
 
 	
 
@@ -33,6 +34,15 @@ public class Appointment {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	
 	public String getTaocan() {
 		return taocan;
@@ -130,20 +140,20 @@ public class Appointment {
 		this.telephone = telephone;
 	}
 
+	public String getSubmitTime() {
+		return submitTime;
+	}
+
+	public void setSubmitTime(String submitTime) {
+		this.submitTime = submitTime;
+	}
+
 	public String getNote() {
 		return note;
 	}
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-	
-	public Date getSubmitTime() {
-		return submitTime;
-	}
-
-	public void setSubmitTime(Date submitTime) {
-		this.submitTime = submitTime;
-	}
+	}	
 
 }

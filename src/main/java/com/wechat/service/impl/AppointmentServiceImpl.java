@@ -32,4 +32,10 @@ public class AppointmentServiceImpl implements IAppointmentService{
 		// TODO 自动生成的方法存根
 		return this.appointmentDao.findAll();
 	}
+
+	@Override
+	public void updateAppointment(Appointment appointment) {
+		// TODO 自动生成的方法存根
+		this.appointmentDao.update(appointment);
+	}
 }

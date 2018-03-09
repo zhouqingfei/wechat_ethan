@@ -179,4 +179,8 @@ public class AppointmentController {
 		System.out.println(openId);
 		return "sucess";
 	}
+<<<<<<< HEAD
+=======
+	
+>>>>>>> a78615182d36231e97e8579b6a2a2c7556c7b321
 }

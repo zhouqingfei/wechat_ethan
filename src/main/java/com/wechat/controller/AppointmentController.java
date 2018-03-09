@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -169,5 +170,13 @@ public class AppointmentController {
 		System.out.println(json);
 		return json;
 		
+	}
+	
+	@RequestMapping(value="/getUserOpenId",method=RequestMethod.GET)
+	public @ResponseBody  String getUserOpenId(@RequestParam("openId") String openId) {
+		//添加用户的的OPENID到数据库的 service
+		
+		System.out.println(openId);
+		return "sucess";
 	}
 }

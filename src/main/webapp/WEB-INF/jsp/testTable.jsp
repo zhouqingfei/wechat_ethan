@@ -132,7 +132,7 @@
    					<tr id="tomMapAddressTr">
    						<td>终点地址:</td>
    						<td>
-   							<input type="text" style="width:197px;" name="toMapAddress" onmouseover="this.select()" class="easyui-validatebox" value="" />
+   							<input type="text" style="width:197px;" name="toMapAddress" class="easyui-validatebox" value="" />
    						</td>   				   					
    					</tr>
    					

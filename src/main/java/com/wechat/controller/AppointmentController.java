@@ -49,6 +49,7 @@ public class AppointmentController {
 		System.out.println(toMapName + toMapAddress + toDes + toFloor + userName + telephone + note);
 		
 		Appointment appointment = new Appointment();
+		appointment.setState("未处理");
 		appointment.setTaocan(taocan);
 		appointment.setAppointTime(appointTime);
 		
@@ -66,9 +67,63 @@ public class AppointmentController {
 		appointment.setTelephone(telephone);;
 		appointment.setNote(note);;
 		
-		appointment.setSubmitTime(new Date());
+		Date date = new Date();  
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 HH时mm分ss秒");  
+        String submitTime = dateFormat.format(date.getTime());    
+		
+		appointment.setSubmitTime(submitTime);
 		
 		appointmentService.addAppointment(appointment);
+		
+		return "成功";
+	}
+	
+	@RequestMapping(value="/updateAppointment",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
+	public @ResponseBody String updateAppointment(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		String state = request.getParameter("state");
+		String taocan = request.getParameter("taocan");
+		String appointTime = request.getParameter("appointTime");
+		
+		String fromMapName = request.getParameter("fromMapName");
+		String fromMapAddress = request.getParameter("fromMapAddress");
+		String fromDes = request.getParameter("fromDes");
+		String fromFloor = request.getParameter("fromFloor");
+		
+		String toMapName = request.getParameter("toMapName");
+		String toMapAddress = request.getParameter("toMapAddress");
+		String toDes = request.getParameter("toDes");
+		String toFloor = request.getParameter("toFloor");
+		
+		String userName = request.getParameter("userName");
+		String telephone = request.getParameter("telephone");
+		String note = request.getParameter("note");
+		
+		System.out.println(id + state + taocan + appointTime + fromMapName + fromMapAddress + fromDes +fromFloor);
+		System.out.println(toMapName + toMapAddress + toDes + toFloor + userName + telephone + note);
+		
+		Appointment appointment = new Appointment();
+		
+		appointment.setId(Integer.parseInt(id));
+		appointment.setState(state);
+		appointment.setTaocan(taocan);
+		appointment.setAppointTime(appointTime);
+		
+		appointment.setFromMapName(fromMapName);
+		appointment.setFromMapAddress(fromMapAddress);
+		appointment.setFromDes(fromDes);		
+		appointment.setFromFloor(fromFloor);
+		
+		appointment.setToMapName(toMapName);
+		appointment.setToMapAddress(toMapAddress);
+		appointment.setToDes(toDes);		
+		appointment.setToFloor(toFloor);
+		
+		appointment.setUserName(userName);
+		appointment.setTelephone(telephone);;
+		appointment.setNote(note);;
+		
+		appointmentService.updateAppointment(appointment);
 		
 		return "成功";
 	}
@@ -82,7 +137,7 @@ public class AppointmentController {
 	@RequestMapping(value="/getAppointmentList",method=RequestMethod.POST,produces = "text/json;charset=UTF-8")
 	public @ResponseBody String getAppointMentList(HttpServletRequest request) {
 		
-		System.out.println("getAppointmentList");
+		//System.out.println("getAppointmentList");
 		
 		int currentPage = Integer.parseInt(request.getParameter("page"));
 		int pageSize = Integer.parseInt(request.getParameter("rows"));
@@ -97,7 +152,7 @@ public class AppointmentController {
 		Gson gs = new Gson();
 		String json = "{\"total\":" + size + " , \"rows\":" + gs.toJson(appointmentList).toString() + "}";
 		// System.out.println("getTestCaseList handler, ret: "+ json);
-		System.out.println(json);
+		//System.out.println(json);
 		return json;
 		
 	}

@@ -46,7 +46,7 @@ public class PicUrlController {
 		Gson gs = new Gson();
 		String json = "{\"result\":" + gs.toJson(jsonList).toString() + "}";
 		System.out.println(json);
-		return gs.toJson(json).toString();	 	
+		return gs.toJson(json).toString();	
 	}
 	
 	@RequestMapping(value = "/getmain",method=RequestMethod.GET,produces = "text/json;charset=UTF-8")
